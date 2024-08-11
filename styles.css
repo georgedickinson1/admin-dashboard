@@ -21,6 +21,8 @@ body {
     background: rgba(163, 165, 178, 0.20);
 }
 
+/* Main Content */
+
 .main-content {
     background-color: cyan;
     grid-row: 2 / 3;
@@ -30,45 +32,19 @@ body {
 
 .container {
     background: white;
-    height: 75vh;
+    height: 70vh;
     margin: 30px;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 5fr 1fr;
-    grid-template-rows: 4fr 1fr;
+    grid-template-columns: 4fr 1fr;
+
+    padding: 10px;
+    overflow: scroll;
 }
 
-.projects {
-    grid-row: 1 / 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 3em 1fr 1fr;
-}
-
-.announcements {
-    grid-row: 1 / 2;
-    display: grid;
-}
-
-/* arrange grid for announcements */
-
-.trending {
-    grid-row: 2 / 3;
-    display: grid;
-    margin: 10px;
-    grid-template-rows: 3em 1fr;
-}
-
-.card.trend {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-}
-
-.profile {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
+.text {
+    margin: 0;
+    padding: 0; 
 }
 
 .card {
@@ -76,27 +52,63 @@ body {
     border: solid 1px #9F9F9F; 
 }
 
-.project-header {
-    grid-column: 1 / 4;
-    margin: 10px;
+/* Projects */
+
+.projects {
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-rows: 3em repeat(auto-fit, minmax(200px, 300px));
+    gap: 10px;
 }
 
-.trending-header {
-    margin: 10px;
-    margin-left: 0;
+.project-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    margin-top: 15px;
+    gap: 10px;
 }
 
 .card.project {
-    margin: 10px;
     padding: 10px;
+    padding-bottom: 100px;
 }
+
+
+.card-heading-projects {
+    margin-bottom: 7px;
+}
+
+/* Trending */
 
 .trending-profile-image {
     border-radius: 50%;
     background-color: rgb(179, 179, 179);
     grid-row: 1 / 3;
     justify-self: end;
-    margin-right: 10px;
+    margin: 10px;
+}
+
+.trending-header {
+    margin: 10px;
+}
+
+.trending {
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: 3em 1fr;
+}
+
+.card.trend {
+    display: grid;
+    margin: 10px;
+    height: 240px;
+}
+
+.profile {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 7fr;
+    padding-bottom: 5px;
 }
 
 .profile-heading {
@@ -106,13 +118,48 @@ body {
 
 }
 
-.profile-name {
-    grid-column: 2 / 3; 
-    align-self: start; 
-    margin-top: 0; 
-}
-
 .profile-heading,
 .profile-name {
     margin-left: -5px;
+    margin-top: -5px;
+}
+
+/* Announcements */
+
+.announcements {
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-rows: 3em minmax(200px, 500px);
+}
+
+.announcement-header {
+    margin: 10px;
+    position: relative;
+    top: 10px;
+}
+
+.card.announce {
+    margin: 10px;
+    margin-top: 25px;
+    display: grid;
+    overflow: scroll;
+}
+
+.announce-subsection {
+    margin: 0;
+    padding: 0 10px;
+    padding-bottom: 20px;
+}
+
+.header-subsection {
+    margin-bottom: 5px;
+    padding-top: 10px;
+}
+
+.announce-subsection.two {
+    margin-top: -30px;
+}
+
+.announce-subsection.three {
+    margin-top: -30px;
 }
