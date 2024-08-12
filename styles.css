@@ -6,7 +6,9 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     height: 100%;
-    overflow: hidden;
+    overflow-y: scroll; /* Ensure that overflow is handled more consistently */
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: auto;
     background: rgb(244, 244, 245);
 }
 
@@ -19,6 +21,26 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 110px;
+    font-size: 16px;
+}
+
+footer > a {
+    margin: 4px;
+    font-size: 18px;
+    color: black;
+}
+
+footer > a > i:hover {
+    color: rgb(57, 57, 57);
+    cursor: pointer;
 }
 
 /* Main Content */
@@ -48,7 +70,11 @@ textarea {
 
 .card {
     border-radius: 10px;
-    border: solid 1px #9F9F9F; 
+    border: solid 1px #b0afaf; 
+}
+
+.card:hover {
+    border: solid black 1px;
 }
 
 /* Projects */
@@ -70,11 +96,30 @@ textarea {
 .card.project {
     padding: 10px;
     padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 
 .card-heading-projects {
     margin-bottom: 7px;
+}
+
+.icons {
+    font-size: 18px;
+    align-self: flex-end;
+    position: relative;
+    top: 90px;
+}
+
+.icons > i {
+    margin: 3px;
+}
+
+.icons > i:hover {
+    cursor: pointer;
+    position: relative;
+    bottom: 1px;
 }
 
 /* Trending */
@@ -100,7 +145,12 @@ textarea {
 .card.trend {
     display: grid;
     margin: 10px;
-    height: 250px;
+    height: 263px;
+}
+
+.card.trend:hover {
+    border: solid 1px #b0afaf; 
+    cursor:auto;
 }
 
 .profile {
@@ -108,6 +158,11 @@ textarea {
     align-items: center;
     grid-template-columns: 1fr 7fr;
     padding-bottom: 5px;
+}
+
+.profile:hover {
+    color: rgb(69, 69, 69);
+    cursor: pointer;
 }
 
 .profile-heading {
@@ -145,10 +200,21 @@ textarea {
     overflow: scroll;
 }
 
+.card.announce:hover {
+    border: solid 1px #b0afaf; 
+    cursor:auto;
+}
+
 .announce-subsection {
     margin: 0;
     padding: 0 10px;
     padding-bottom: 20px;
+    height: 0px;
+}
+
+.announce-subsection:hover {
+    color: rgb(69, 69, 69);
+    cursor: pointer;
 }
 
 .header-subsection {
@@ -173,6 +239,9 @@ textarea {
     display: flex;
     flex-direction: column;
     padding:10px;
+    position:sticky;
+    top: 0;
+    box-sizing: border-box;
 }
 
 .sidebar-option {
@@ -180,11 +249,19 @@ textarea {
     margin: -30px 10px;
 }
 
-.sidebar-option > img {
-    border-radius: 50%;
-    background-color: #9F9F9F;
+.sidebar-option:hover {
+     p, i {
+        color: rgb(255, 255, 255);
+    }
+    cursor: pointer;
+}
+
+.sidebar-option > i {
     align-self: center;
     margin-right: 5px;
+    color: #c2c3ca;
+    padding-right: 5px;
+    width: 15px;
 }
 
 .sidebar > h1 {
@@ -225,7 +302,7 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 40px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -238,6 +315,15 @@ textarea {
     display: flex;
     
 }
+
+form:hover {
+    border: solid 1px rgb(159, 159, 159);
+}
+
+form:focus-within {
+    border: solid 1px rgb(79, 79, 79);
+}
+
 
 form {
     background-color: white;
@@ -272,6 +358,7 @@ form {
     display: flex;
     justify-content: flex-end;
     margin: 40px;
+    margin-top: 25px;
     align-items: center;
 }
 
@@ -281,6 +368,19 @@ form {
     margin: 10px;
     width: 35px;
     height: 35px;
+    margin-right: 0;
+}
+
+.account:hover {
+    cursor: pointer;
+}
+
+.account > i {
+    font-size: 18px;
+}
+
+.account > i:hover {
+    color: rgb(61, 61, 61);
 }
 
 /* Greeting */
@@ -309,8 +409,8 @@ form {
 
 .user {
     margin-top: 0;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 /* Buttons */
@@ -331,4 +431,9 @@ form {
     border-radius: 10px;
     font-size: 16px;
     font-weight: 300;
+}
+
+.buttons > button:hover {
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
 }
